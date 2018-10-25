@@ -29,13 +29,13 @@ project(":core") {
 ### Step 1
 Create resources folders in ..android/assets/
 
-Folder       | Assets
------------- | -------------
-**g/** | **Graphics**: TextureAtlas files, extensions: ***.atlas***, ***.pack***
-**s/** | **Sounds**: Sound files, extensions: ***.ogg***, ***.mp3***
-**m/** | **Music**: Music files, extensions: ***.ogg***, ***.mp3***
-**e/** | **Effects**: ParticleEffect files, extension: ***.eff***
-**f/** | **Fonts**: BitmapFont files, extension: ***.fnt***
+Folder       | Assets	     | Class
+------------ | ------------- | -------------
+**g/** | **Graphics** | TextureAtlas files, extensions: ***.atlas***, ***.pack***
+**s/** | **Sounds**   | Sound files, extensions: ***.ogg***, ***.mp3***
+**m/** | **Music**    | Music files, extensions: ***.ogg***, ***.mp3***
+**e/** | **Effects**  | ParticleEffect files, extension: ***.eff***
+**f/** | **Fonts**    | BitmapFont files, extension: ***.fnt***
 
 ### Step 2
 Create package *assets* in core project and create enums in *assets* package:
