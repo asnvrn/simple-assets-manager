@@ -107,14 +107,14 @@ A.newTextureRegion(G.REGION_NAME);
 ```
 A.playSound(S.SOUND_NAME);
 A.stopSound(S.SOUND_NAME);
-A.setSoundsVolune(float volume);
+A.setSoundsVolume(float volume);
 A.setSoundsDisabled(boolean disabled);
 ```
 ### Музыка
 ```
 A.playMusic(M.MUSIC_NAME);
 A.stopMusic(M.MUSIC_NAME);
-A.setMusicVolune(float volume);
+A.setMusicVolume(float volume);
 A.setMusicDisabled(boolean disabled);
 A.setMusicLooping(boolean looping);
 ```
