@@ -13,7 +13,7 @@ allprojects {
     }
 }
 ```
-Добавить зависимость в core проект сам менеджер:
+Добавить зависимость в core проект:
 ```
 project(":core") {
     apply plugin: "java"
