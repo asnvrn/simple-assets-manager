@@ -53,11 +53,10 @@ public class SimpleAssetsManager {
     /** Initialization and start loading resources. */
     public static boolean load() {
         if (!loaded) {
+            logger.info("Simple Assets Manager " + VER + " loading...");
+            millis = TimeUtils.millis();
             sam = new SimpleAssetsManager();
             sam.manager = new AssetManager();
-            //if (!log) logger.setLevel(Logger.NONE);
-            millis = TimeUtils.millis();
-            logger.info("Simple Assets Manager " + VER + " loading...");
             sam.gAssets = new GraphicsAssets();
             sam.sAssets = new SoundsAssets();
             sam.mAssets = new MusicAssets();
@@ -70,7 +69,7 @@ public class SimpleAssetsManager {
             sam.loader(sam.fAssets, BitmapFont.class);
             loaded = true;
         }
-        if (!built && sam.manager.getProgress() >= 1.0f) {
+        if (!built && sam.manager.getProgress() > 0.999f) {
             sam.builder(sam.gAssets);
             sam.builder(sam.sAssets);
             sam.builder(sam.mAssets);
@@ -85,6 +84,7 @@ public class SimpleAssetsManager {
         return completed;
     }
 
+    /** Condition for performing a one-time action. */ 
     public static boolean isLoadedRunOne() {
         if (!runOne && completed) return runOne = true;
         return false;
