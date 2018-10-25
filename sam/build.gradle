@@ -2,7 +2,7 @@ apply plugin: 'java'
 apply plugin: 'maven'
 
 group 'com.github.java4game'
-version '1.5-SHAPSHOT'
+version '1.4.1'
 
 targetCompatibility = 1.8
 sourceCompatibility = 1.8

@@ -8,13 +8,7 @@
 package com.github.java4game.sam;
 
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.assets.AssetDescriptor;
-import com.badlogic.gdx.assets.AssetLoaderParameters;
 import com.badlogic.gdx.assets.AssetManager;
-import com.badlogic.gdx.assets.loaders.AssetLoader;
-import com.badlogic.gdx.assets.loaders.FileHandleResolver;
-import com.badlogic.gdx.assets.loaders.SoundLoader;
-import com.badlogic.gdx.assets.loaders.resolvers.InternalFileHandleResolver;
 import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.files.FileHandle;
@@ -30,7 +24,7 @@ import com.badlogic.gdx.utils.TimeUtils;
  * Provides simple methods for uses graphics, sounds, music, fonts and effects resources in the game. */
 public class SimpleAssetsManager {
 
-    private static final String VER = "1.4";
+    private static final String VER = "1.4.1";
     private static final String TAG = "SAM";
     private static final String OK = "ok!";
     private static final String NF = "not found!";
