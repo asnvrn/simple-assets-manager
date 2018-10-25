@@ -65,12 +65,19 @@ public enum F implements FAsset {
 }
 ```
 Note:
-> All enums in upper case with divide _
+> All enums names должны in upper case with divide _ and equals file names in lower case without extension.
+> Exclusion: G enum, names equals regions names in texture atlases.
+
+> Example:
+
+> G.IMG_BG equals region with name img_bg
+
+> S.BTN_CLICK equals file name btn_click.mp3 or btn_click.ogg in directory s/
 
 Create empty class **A** in *assets* package, extends **SimpleAssetManager**
 ```
 public class A extents SimpleAssetManager {
-    // Empty 
+    // User code here...
 }
 ```
 
