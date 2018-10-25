@@ -24,7 +24,7 @@ import com.badlogic.gdx.utils.TimeUtils;
  * Provides simple methods for uses graphics, sounds, music, fonts and effects resources in the game. */
 public class SimpleAssetsManager {
 
-    private static final String VER = "1.4.1";
+    private static final String VER = "1.4.2";
     private static final String TAG = "SAM";
     private static final String OK = "ok!";
     private static final String NF = "not found!";
@@ -37,20 +37,18 @@ public class SimpleAssetsManager {
     private EffectsAssets eAssets;
     private FontsAssets fAssets;
 
-
-
     private static Logger logger = new Logger(TAG, Logger.DEBUG);
     private static int filesLoaded = 0;
     private static long millis = 0;
 
     private static SimpleAssetsManager sam;
 
-    protected SimpleAssetsManager() {}
-
     private static boolean loaded = false;
     private static boolean built = false;
     private static boolean completed = false;
     private static boolean runOne = false;
+
+    protected SimpleAssetsManager() {}
 
     /** Initialization and start loading resources. */
     public static boolean load() {
@@ -72,7 +70,6 @@ public class SimpleAssetsManager {
             sam.loader(sam.fAssets, BitmapFont.class);
             loaded = true;
         }
-
         if (!built && sam.manager.getProgress() >= 1.0f) {
             sam.builder(sam.gAssets);
             sam.builder(sam.sAssets);
@@ -103,14 +100,8 @@ public class SimpleAssetsManager {
         return ((int) (sam.manager.getProgress() * 100f)) + "%";
     }
 
-
-    /** Get LibGDX AssetManager. */
-    protected static AssetManager getManager() {
-        return sam.manager;
-    }
-
     /** Create New NinePatch. */
-    protected static NinePatch createPath(GAsset asset) {
+    public static NinePatch newNinePath(GAsset asset) {
         return sam.gAssets.createPath(asset);
     }
 
