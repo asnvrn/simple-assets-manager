@@ -64,7 +64,7 @@ public enum F implements FAsset {
     // Insert here BitmapFont names 
 }
 ```
-Note:
+**Note**:
 > All enums names должны in upper case with divide _ and equals file names in lower case without extension.
 > Exclusion: G enum, names equals regions names in texture atlases.
 
@@ -92,7 +92,7 @@ render() {
    ...
 }
 ```
-## Use
+## Uses
 ### Graphics Assets
 ```
 A.newDrawable(G.REGION_NAME);
