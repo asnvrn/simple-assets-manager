@@ -67,7 +67,7 @@ public enum F implements FAsset {
 Note:
 > All enums in upper case with divide _
 
-Create empty class **A** in *assets* package, extents **SimpleAssetManager**
+Create empty class **A** in *assets* package, extends **SimpleAssetManager**
 ```
 public class A extents SimpleAssetManager {
     // Empty 
