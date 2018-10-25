@@ -11,7 +11,7 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.utils.Array;
-import com.github.java4game.sam.SAM;
+import com.github.java4game.sam.SimpleAssetsManager;
 
 public class Example extends ApplicationAdapter {
 
@@ -39,9 +39,10 @@ public class Example extends ApplicationAdapter {
         fontForShowProgress = new BitmapFont(Gdx.files.internal("f/font_18.fnt"));
         fontForShowProgress.setColor(Color.DARK_GRAY);
 
-        // Start SAM loading resource
+        // Start SimpleAssetsManager loading resource
         // with logger enabled
-        SAM.load(true);
+
+
     }
 
     @Override
@@ -49,37 +50,35 @@ public class Example extends ApplicationAdapter {
         Gdx.gl.glClearColor(1, 1, 1, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
-        // Run one this block, when loading completed
-        if (SAM.isLoadedRunOne()) {
-            sprites1 = SAM.createSprites(G.LOGO);
-            sprites2 = SAM.createSprites(G.LOGO);
+        if (A.load()) {
+            if (A.isLoadedRunOne()) {
+                 sprites1 = A.newSprites(G.LOGO);
+                sprites2 = A.newSprites(G.LOGO);
 
-            img = SAM.createImage(G.LOGO, 17);
-            img.setPosition(Gdx.graphics.getWidth() / 2f - img.getWidth() / 2f, Gdx.graphics.getHeight() / 2f - img.getHeight() / 2f);
 
-            label = new Label("Simple Assets Manager", new Label.LabelStyle(SAM.getFont(F.FONT_30), Color.DARK_GRAY));
-            label.setPosition(Gdx.graphics.getWidth() / 2f - label.getWidth() / 2f, 70f);
+                img = A.newImage(G.LOGO, 17);
+                img.setPosition(Gdx.graphics.getWidth() / 2f - img.getWidth() / 2f, Gdx.graphics.getHeight() / 2f - img.getHeight() / 2f);
 
-            // Start play music
-            SAM.playMusic(M.MUSIC);
+                label = new Label("Simple Assets Manager", new Label.LabelStyle(A.font(F.FONT_30), Color.DARK_GRAY));
+                label.setPosition(Gdx.graphics.getWidth() / 2f - label.getWidth() / 2f, 70f);
 
-            // Start play sound
-            SAM.playSound(S.PLAY);
+                // Start play music
+                A.playMusic(M.MUSIC);
 
-            // Start ParticleEffect
-            SAM.getEffect(E.STAR).setPosition(Gdx.graphics.getWidth() / 2f, Gdx.graphics.getHeight() / 2f);
-            SAM.getEffect(E.STAR).start();
-        }
+                // Start play sound
+                A.playSound(S.PLAY);
 
-        // Run loop after loading completed
-        if (SAM.isLoaded()) {
+                // Start ParticleEffect
+                A.effect(E.STAR).setPosition(Gdx.graphics.getWidth() / 2f, Gdx.graphics.getHeight() / 2f);
+                A.effect(E.STAR).start();
+            }
             acc++;
             acc2++;
             batch.begin();
             img.draw(batch, 1);
             label.draw(batch, 1);
-            SAM.getEffect(E.STAR).update(Gdx.graphics.getDeltaTime());
-            SAM.getEffect(E.STAR).draw(batch);
+            A.effect(E.STAR).update(Gdx.graphics.getDeltaTime());
+            A.effect(E.STAR).draw(batch);
             if (acc2 > 5) {
                 if (sc > 16) sc = 0;
                 sc++;
@@ -91,18 +90,15 @@ public class Example extends ApplicationAdapter {
             sprites2.get(sc).draw(batch, 1);
             batch.end();
             if (acc > 200) {
-                SAM.playSound(S.STAR30);
-                SAM.getEffect(E.STAR).reset();
-                SAM.getEffect(E.STAR).start();
+                A.playSound(S.STAR30);
+                A.effect(E.STAR).reset();
+                A.effect(E.STAR).start();
                 acc = 0;
             }
         } else {
-            // Updating SAM loading resources
-            SAM.update();
-
             // This percent progress
             batch.begin();
-            fontForShowProgress.draw(batch, "Loading... " + SAM.getPercents(), 0, 18f);
+            fontForShowProgress.draw(batch, "Loading... " + SimpleAssetsManager.getPercents(), 0, 18f);
             batch.end();
         }
     }
@@ -110,6 +106,6 @@ public class Example extends ApplicationAdapter {
     @Override
     public void dispose() {
         // Dispose all resources */
-        SAM.dispose();
+        A.dispose();
     }
 }
