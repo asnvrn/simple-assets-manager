@@ -90,6 +90,7 @@ render() {
 ```
 A.newDrawable(G.REGION_NAME);
 A.newImage(G.REGION_NAME);
+A.newNinePath(G.REGION_NAME);
 A.newSprite(G.REGION_NAME);
 A.newSprites(G.REGION_NAME);
 A.newStaticTile(G.REGION_NAME);
