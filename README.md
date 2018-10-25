@@ -20,7 +20,7 @@ project(":core") {
 
     dependencies {
         ...
-        implementation 'com.github.java4game:simple-assets-manager:1.0'
+        implementation 'com.github.java4game:simple-assets-manager:1.4.2'
     }
 }
 ```
@@ -38,7 +38,7 @@ Folder       | Assets
 **f/** | **Fonts**: BitmapFont files, extension: ***.fnt***
 
 ### Step 2
-Create packedge *assets* in core project and create enums in *assets* packedge:
+Create package *assets* in core project and create enums in *assets* package:
 ```
 public enum G implements GAsset {
     // Insert here AtlasRegion names
@@ -46,38 +46,41 @@ public enum G implements GAsset {
 ```
 ```
 public enum S implements SAsset {
-    // Insert here Sound files names, without extension 
+    // Insert here Sound names 
 }
 ```
 ```
 public enum M implements MAsset {
-    // Insert here Music files names, without extension 
+    // Insert here Music names 
 }
 ```
 ```
 public enum E implements EAsset {
-    // Insert here ParticleEffect files names, without extension 
+    // Insert here ParticleEffect names 
 }
 ```
 ```
 public enum F implements FAsset {
-    // Insert here BitmapFont files names, without extension 
+    // Insert here BitmapFont names 
 }
 ```
 Note:
 > All enums in upper case with divide _
 
+Create empty class **A** in *assets* package, extents **SimpleAssetManager**
+```
+public class A extents SimpleAssetManager {
+    // Empty 
+}
+```
+
 ### Step 3
-Run method SAM.load() for initialization and start loading all resources.
-
-Insert method SAM.update() in render loop for loading.
-
-Create code for action when loading completed:
+Create code for loading resources:
 ```
 render() {
    ...
-   if (SAM.isLoadedRunOne) {
-      // Loading completed. Run one any action...
+   if (A.load()) {
+      // Insert here action, when loading completed
    }
    ...
 }
@@ -85,25 +88,37 @@ render() {
 ## Use
 ### Graphics Assets
 ```
-SAM.createImage(G.IMAGE_NAME);
+A.newDrawable(G.REGION_NAME);
+A.newImage(G.REGION_NAME);
+A.newSprite(G.REGION_NAME);
+A.newSprites(G.REGION_NAME);
+A.newStaticTile(G.REGION_NAME);
+A.newTextureRegion(G.REGION_NAME);
 ```
 ### Sounds Assets
 ```
-SAM.playSound(S.SOUND_NAME);
+A.playSound(S.SOUND_NAME);
+A.stopSound(S.SOUND_NAME);
+A.setSoundsVolune(float volume);
+A.setSoundsDisabled(boolean disabled);
 ```
 ### Music Assets
 ```
-SAM.playMusic(M.MUSIC_NAME);
+A.playMusic(M.MUSIC_NAME);
+A.stopMusic(M.MUSIC_NAME);
+A.setMusicVolune(float volume);
+A.setMusicDisabled(boolean disabled);
+A.setMusicLooping(boolean looping);
 ```
 ### Effects Assets
 ```
-SAM.getEffect(E.EFFECT_NAME);
+A.effect(E.EFFECT_NAME);
 ```
 ### Fonts Assets
 ```
-SAM.getFont(F.FONT_NAME);
+A.font(F.FONT_NAME);
 ```
 ### Assets Dispose
 ```
-SAM.dispose();
+A.dispose();
 ```
