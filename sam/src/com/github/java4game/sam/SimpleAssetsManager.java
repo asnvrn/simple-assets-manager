@@ -21,7 +21,7 @@ import com.badlogic.gdx.utils.Logger;
 import com.badlogic.gdx.utils.TimeUtils;
 
 /** Simple Assets Manager for LibGDX.
- * Provides simple methods for uses graphics, sounds, music, fonts and effects resources in the game. */
+ * Provides simple methods for uses graphics, sounds, music, fonts and particle effects resources in the game. */
 public class SimpleAssetsManager {
 
     private static final String VER = "1.4.2";
@@ -40,7 +40,7 @@ public class SimpleAssetsManager {
     private static Logger logger = new Logger(TAG, Logger.DEBUG);
     private static int filesLoaded = 0;
     private static long millis = 0;
-
+    
     private static SimpleAssetsManager sam;
 
     private static boolean loaded = false;
@@ -160,10 +160,12 @@ public class SimpleAssetsManager {
         return sam.gAssets.createDrawable(asset, index);
     }
 
+    /** Play Sound. */
     public static void playSound(SAsset asset) {
         sam.sAssets.play(asset);
     }
 
+    /** Stop playing Sound. */
     public static void stopSound(SAsset asset) {
         sam.sAssets.stop(asset);
     }
@@ -178,14 +180,17 @@ public class SimpleAssetsManager {
         sam.sAssets.setDisabled(disabled);
     }
 
+    /** Play Music. */
     public static void playMusic(MAsset asset) {
         sam.mAssets.play(asset);
     }
 
+    /** Stop playing Music. */
     public static void stopMusic(MAsset asset) {
         sam.mAssets.stop(asset);
     }
 
+    /** Pause playing Music. */
     public static void pauseMusic(MAsset asset) {
         sam.mAssets.pause(asset);
     }
@@ -200,6 +205,7 @@ public class SimpleAssetsManager {
         sam.mAssets.setDisabled(disabled);
     }
 
+    /** Set Music loop. */
     public static void setMusicLooping(boolean looping) {
         sam.mAssets.setLooping(looping);
     }
