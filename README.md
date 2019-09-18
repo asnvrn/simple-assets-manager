@@ -76,7 +76,7 @@ public enum F implements FAsset {
 
 Create empty class **A** in *assets* package, extends **SimpleAssetManager**
 ```
-public class A extents SimpleAssetManager {
+public class A extends SimpleAssetManager {
     // User code here...
 }
 ```
