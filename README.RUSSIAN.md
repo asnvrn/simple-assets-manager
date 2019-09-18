@@ -76,7 +76,7 @@ public enum F implements FAsset {
 
 Создать пустой класс **A** в пакете *assets*, расширяющий класс **SimpleAssetManager**
 ```
-public class A extents SimpleAssetManager {
+public class A extends SimpleAssetManager {
     // Сюда можно поместить пользовательский код управления ресурсами 
 }
 ```
