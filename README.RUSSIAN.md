@@ -20,7 +20,7 @@ project(":core") {
 
     dependencies {
         ...
-        implementation 'com.github.java4game:simple-assets-manager:1.4.2'
+        implementation 'com.github.asc0der:simple-assets-manager:1.4.2'
     }
 }
 ```
